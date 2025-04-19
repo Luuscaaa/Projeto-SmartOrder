@@ -13,16 +13,26 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout Code
-        uses: actions/checkout@v2
+      - name: 📥 Checkout do Código
+        uses: actions/checkout@v3
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v2
+      - name: 🔧 Configurar Node.js
+        uses: actions/setup-node@v3
         with:
-          node-version: '14'
+          node-version: '18' # Você está usando bibliotecas modernas — melhor usar 18+
 
-      - name: Install Dependencies
+      - name: 📦 Instalar Dependências
         run: npm install
 
-      - name: Run Tests
+      - name: ✅ Rodar Testes com Jest
         run: npm test
+
+      - name: 📤 Upload de Resultados (se quiser salvar logs)
+        if: failure()
+        uses: actions/upload-artifact@v3
+        with:
+          name: jest-results
+          path: |
+            ./test-results/
+            ./coverage/
+
