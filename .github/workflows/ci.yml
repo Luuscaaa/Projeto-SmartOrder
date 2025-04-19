@@ -27,12 +27,9 @@ jobs:
       - name: ✅ Rodar Testes com Jest
         run: npm test
 
-      - name: 📤 Upload de Resultados (se quiser salvar logs)
+      - name: 📤 Upload de Resultados (se os testes falharem)
         if: failure()
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: jest-results
-          path: |
-            ./test-results/
-            ./coverage/
-
+          path: coverage/
