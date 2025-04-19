@@ -1,18 +1,22 @@
 import { ActivityIndicator, Image, Text, View } from "react-native";
 import { style } from "./style";
 import { useRouter } from "expo-router";
-import { useEffect } from "react";
+import { useEffect, useCallback } from "react";
+import { useFocusEffect } from '@react-navigation/native'
 
 const SplashScreen = () => {
-  const router = useRouter()
+  const router = useRouter();
 
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      router.push('/login'); 
-    }, 3000)
+  useFocusEffect(
+    useCallback(() => {
+      const timer = setTimeout(() => {
+        router.push('/login');
+      }, 3000);
 
-    return () => clearTimeout(timer)
-  }, []);
+      return () => clearTimeout(timer);
+    }, [])
+  );
+
 
   return (
     <View style={style.container}>
