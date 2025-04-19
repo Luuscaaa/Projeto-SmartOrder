@@ -12,13 +12,6 @@
     "test:ci": "jest --ci",
     "lint": "expo lint"
   },
-  "jest": {
-    "preset": "jest-expo",
-    "testEnvironment": "jsdom",
-    "transformIgnorePatterns": [
-      "node_modules/(?!(jest-)?react-native|@react-native|expo(nent)?|@expo(nent)?|react-navigation)"
-    ]
-  },
   "dependencies": {
     "@expo/vector-icons": "^14.0.2",
     "@react-native-masked-view/masked-view": "0.3.2",
