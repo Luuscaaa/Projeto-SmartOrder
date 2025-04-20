@@ -3,7 +3,7 @@
 import React from 'react';
 import { render, fireEvent, waitFor } from '@testing-library/react-native';
 import { useRouter } from 'expo-router';
-import { Login } from '../src/screens/Login'; // ajuste o caminho conforme necessário
+import Login from '../src/screens/login';
 
 // Mock do router do expo-router
 jest.mock('expo-router', () => ({
