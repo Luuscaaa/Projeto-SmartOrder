@@ -26,5 +26,7 @@ jobs:
           npm install
 
       - name: Run login tests
+        env:
+          NODE_ENV: test
         run: |
           npm test src/__tests__/login.test.js  # Caminho específico para os testes de login
