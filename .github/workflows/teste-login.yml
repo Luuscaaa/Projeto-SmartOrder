@@ -1,0 +1,30 @@
+name: Testes de Login
+
+on:
+  push:
+    branches:
+      - main  # Ou a branch que você deseja monitorar
+  pull_request:
+    branches:
+      - main  # Ou a branch que você deseja monitorar
+
+jobs:
+  test:
+    runs-on: ubuntu-latest  # Ambiente onde os testes vão rodar
+
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '16'  # Ou a versão do Node.js que você está usando
+
+      - name: Install dependencies
+        run: |
+          npm install
+
+      - name: Run login tests
+        run: |
+          npm test src/__tests__/login.test.js  # Caminho específico para os testes de login
