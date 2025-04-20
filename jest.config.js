@@ -7,7 +7,7 @@ module.exports = {
     'node_modules/(?!(jest-)?react-native|@react-native|react-clone-referenced-element|@react-navigation|expo(nent)?|@expo(nent)?/.*|@unimodules/.*|unimodules|sentry-expo|native-base|@react-native-community/.*)',
   ],
   setupFiles: [
-    'formdata-polyfill', // Adicionando o polyfill aqui
+    './jest.setup.js',
     '@testing-library/jest-native/extend-expect'
-  ], // Se necessário
+  ],  
 };

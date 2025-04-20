@@ -3,7 +3,6 @@ import { Login } from '../screens/login/login.tsx';
 import { Alert } from 'react-native';
 import { router } from 'expo-router'; // Importando o router para usar no teste
 
-global.FormData = require('formdata-polyfill');
 
 jest.mock('expo-router', () => ({
   useRouter: () => ({
