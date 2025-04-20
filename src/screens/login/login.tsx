@@ -63,6 +63,7 @@ export const Login = () => {
       <TouchableOpacity
         style={styles.button}
         onPress={handleLogin}
+        testID="button-entrar"
       >
         <Text style={styles.textButton}>Entrar</Text>
       </TouchableOpacity>
