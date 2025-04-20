@@ -42,18 +42,20 @@ export const Login = () => {
     <View style={styles.container}>
       <Text style={styles.title}>Login</Text>
       <View style={styles.boxInput}>
-        <CustomInput
-          titleInput="E-mail:"
-          setValue={setEmail}
-          value={email}
-          isSenha={false}
-        />
-        <CustomInput
-          titleInput="Senha:"
-          setValue={setSenha}
-          value={senha}
-          isSenha={true}
-        />
+      <CustomInput
+        titleInput="E-mail:"
+        setValue={setEmail}
+        value={email}
+        isSenha={false}
+        testID="input-email"
+      />
+      <CustomInput
+        titleInput="Senha:"
+        setValue={setSenha}
+        value={senha}
+        isSenha={true}
+        testID="input-senha"
+      />
       </View>
       <TouchableOpacity style={styles.text}>
         <Text>Esqueceu a senha?</Text>
