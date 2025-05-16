@@ -1,50 +1,66 @@
 import { StyleSheet } from "react-native";
 
 
-export const styles = StyleSheet.create({
+export const style = StyleSheet.create({
     container:{
         flex: 1,
         alignItems: 'center',
-        justifyContent: 'center',
         backgroundColor: '#fff',
+        padding: 30
+    },
+    title:{
+        fontSize: 35,
+        fontWeight: 'bold',
+        marginTop: 50
+    },
+    subTitle:{
+        fontSize: 20,
+        marginTop: 25
+    },
+    boxMid:{
+        width: '100%',
+        maxWidth: 400,
+        marginTop: 200,
+        gap: 20
     },
     boxInput:{
         width: '100%',
-        gap: 20, 
+        height: 60,
+        borderRadius: 8,
+        borderWidth: 1,
+        marginTop: 10, 
+        flexDirection: 'row',
+        alignItems: 'center',
+        paddingHorizontal: 5,
+        backgroundColor: '#FFFFFF'
     },
-    title:{
-        fontSize: 30,
-        fontWeight: 'bold',
-        marginBottom: 30,
-        alignSelf: 'flex-start',
-        marginLeft: 20
+    input: {
+        height: '90%',
+        width: '90%',
+        borderRadius: 8,
+        paddingLeft: 5,
+        outlineColor: '#FFFFFF',
+        backgroundColor: '#FFFFFF',
+        fontSize: 18
     },
-    text:{
-        fontFamily: 'inter',
-        fontSize: 18,
-        alignSelf: 'flex-start',
-        marginLeft: 20,
-        marginTop: 40 
+    boxButton:{
+        width: '100%',
+        maxWidth: 400,
+        alignItems: 'center',
     },
     button:{
-        width: '60%',
+        width: '100%',
         height: 50,
-        backgroundColor: '#E65100',
+        backgroundColor: '#FA931D',
         alignItems: 'center',
         justifyContent: 'center',
-        borderRadius: 15,
-        marginTop: 40
+        borderRadius: 8,
+        marginTop: 200
     },
     textButton:{
-        color: '#fff',
-        fontWeight: 'bold',
-        fontSize: 20
+        fontSize: 20,
+        color: 'white',
+        fontWeight: 'bold'
     },
-    divider:{
-        width: '80%',
-        height: 1,
-        backgroundColor: '#000000',
-        marginTop: 40,
-        alignSelf: 'center',
-    }
+       
 })

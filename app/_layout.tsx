@@ -31,8 +31,8 @@ export default function RootLayout() {
     <ThemeProvider value={DefaultTheme}>
       <Stack>
         <Stack.Screen name="index" options={{ headerShown: false }}/>
-        <Stack.Screen name="login" options={{ }}/>
-        <Stack.Screen name="menu" options={{ }}/>
+        <Stack.Screen name="(panel)/login" options={{ headerShown: false }}/>
+        <Stack.Screen name="(panel)/menu" options={{ headerShown: false }}/>
       </Stack>
       <StatusBar style="auto" />
     </ThemeProvider>

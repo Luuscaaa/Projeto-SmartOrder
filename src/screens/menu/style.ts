@@ -4,49 +4,55 @@ import { StyleSheet } from "react-native";
 export const styles = StyleSheet.create({
     container:{
         flex: 1,
-        // justifyContent: 'center',
-        // alignItems: 'center',
-        backgroundColor: '#fff'
+        alignItems: 'center',
+        backgroundColor: '#fff',
+        padding: 30
     },
     title:{
-        fontSize: 30,
+        fontSize: 35,
         fontWeight: 'bold',
-        marginBottom: 30,
-        alignSelf: 'center',
-        marginLeft: 20
+        marginTop: 50
+    },
+    boxScroll:{
+        height: '70%',
+        marginTop: 50,
+        padding: 30,
     },
     boxCards:{
+        width: '100%',
+        maxWidth: 400,
         alignItems: 'center',
         flexDirection: 'row',
         flexWrap: 'wrap',
         justifyContent: 'center',
-        gap: 25,
+        gap: 20,
+        marginVertical: '25%'
     },
     cards:{
         alignItems: 'center',
         justifyContent: 'center',
-        height: 190,
-        width: 140,
-        borderWidth: 1,
+        height: 150,
+        width: 150,
         borderRadius: 15,
+        backgroundColor: '#FA931D'
     },
     textCard:{
         fontSize: 15,
         textAlign: 'center',
-        marginTop: 20
+        marginTop: 10,
+        color: '#fff'
     },
     bottomMenu: {
         position: 'absolute',
         bottom: 0,
-        left: 0,
-        right: 0,
         height: 70,
-        backgroundColor: '#E65100',
         flexDirection: 'row',
         justifyContent: 'space-around',
         alignItems: 'center',
-        borderTopWidth: 1,
-        borderTopColor: '#ccc',
+        borderWidth: 1,
+        borderColor: '#ccc',
+        maxWidth: 400,
+        width: '100%'
       },
       
       menuItem: {
@@ -57,7 +63,7 @@ export const styles = StyleSheet.create({
       menuText: {
         fontSize: 12,
         marginTop: 4,
-        color: '#fff'
-      },    
+        color: 'black'
+      },
 
 })

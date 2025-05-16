@@ -1,69 +1,72 @@
 
-import { Text, TouchableOpacity, View } from "react-native"
+import { ScrollView, Text, TouchableOpacity, View } from "react-native"
 import { styles } from "./style"
-import { MaterialIcons } from "@expo/vector-icons"
+import { FontAwesome, MaterialIcons } from "@expo/vector-icons"
 
 
 export const Menu = () => {
     return(
         <View style={styles.container}>
-            <Text style={styles.title}> Inicio </Text>
-            <View style={styles.boxCards}>
-                <TouchableOpacity style={styles.cards}>
-                    <MaterialIcons
-                        name= 'table-restaurant'
-                        size={80}
-                    />
-                    <Text style={styles.textCard}>Mesas disponíveis</Text>
-                </TouchableOpacity>
-                <TouchableOpacity style={styles.cards}>
-                    <MaterialIcons
-                        name= 'calendar-month'
-                        size={80}
-                    />
-                    <Text style={styles.textCard}>Fazer reserva</Text>
-                </TouchableOpacity>
-                <TouchableOpacity style={styles.cards}>
-                    <MaterialIcons
-                        name= 'menu-book'
-                        size={80}
-                    />
-                    <Text style={styles.textCard}>Ver cardápio</Text>
-                </TouchableOpacity>
-                <TouchableOpacity style={styles.cards}>
-                    <MaterialIcons
-                        name= 'format-list-bulleted'
-                        size={80}
-                    />
-                    <Text style={styles.textCard}>Pedidos</Text>
-                </TouchableOpacity>
+            <Text style={styles.title}>Menu</Text>
+            <View style={styles.boxScroll}>
+                <ScrollView>
+                    <View style={styles.boxCards}>
+                        <TouchableOpacity style={styles.cards}>
+                            <FontAwesome
+                                name= 'cutlery'
+                                size={70}
+                                color={'#fff'}
+                            />
+                            <Text style={styles.textCard}>Cardápio</Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity style={styles.cards}>
+                            <MaterialIcons
+                                name= 'format-list-bulleted'
+                                size={70}
+                                color={'#fff'}
+                            />
+                            <Text style={styles.textCard}>Pedidos</Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity style={styles.cards}>
+                            <MaterialIcons
+                                name= 'mark-unread-chat-alt'
+                                size={70}
+                                color={'#fff'}
+                            />
+                            <Text style={styles.textCard}>Chamar Garçom</Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity style={styles.cards}>
+                            <MaterialIcons
+                                name= 'attach-money'
+                                size={70}
+                                color={'#fff'}
+                            />
+                            <Text style={styles.textCard}>Fechar Conta</Text>
+                        </TouchableOpacity>
+                    </View>
+                </ScrollView>
             </View>
             <View style={styles.bottomMenu}>
                 <TouchableOpacity style={styles.menuItem}>
                     <MaterialIcons 
                         name="home" 
-                        size={28} 
-                        color='#fff'    
+                        size={35} 
+                        color='black'    
                     />
-                    <Text style={styles.menuText}>Início</Text>
                 </TouchableOpacity>
-
                 <TouchableOpacity style={styles.menuItem}>
                     <MaterialIcons 
-                        name="history" 
-                        size={28} 
-                        color='#fff'
+                        name="format-list-bulleted" 
+                        size={35} 
+                        color='black' 
                     />
-                    <Text style={styles.menuText}>Histórico</Text>
                 </TouchableOpacity>
-
                 <TouchableOpacity style={styles.menuItem}>
                     <MaterialIcons
                         name="person" 
-                        size={28} 
-                        color='#fff' 
+                        size={35} 
+                        color='black'  
                     />
-                    <Text style={styles.menuText}>Perfil</Text>
                 </TouchableOpacity>
             </View>
         </View>

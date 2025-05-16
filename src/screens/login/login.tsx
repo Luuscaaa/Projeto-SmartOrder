@@ -1,76 +1,36 @@
-import { CustomInput } from "@/src/components/custom-input/custom-input";
-import { useState } from "react";
-import { Alert, Text, TouchableOpacity, View, Platform } from "react-native";
-import { styles } from "./style";
+import { Text, TextInput, TouchableOpacity, View } from "react-native";
+import { style } from "./style";
 import { router } from "expo-router";
 
 export const Login = () => {
-  const [email, setEmail] = useState('');
-  const [senha, setSenha] = useState('');
-
-  // Lista de usuários fictícios
-  const usuariosFake = [
-    { email: 'lucas@fecaf.com', senha: '123456' },
-    { email: 'guilherme@fecaf.com', senha: '123456' }
-  ];
-
-  const showAlert = (title: string, message: string) => {
-    if (Platform.OS === 'web') {
-      window.alert(`${title}: ${message}`);
-    } else {
-      Alert.alert(title, message);
-    }
-  };
-
-  const handleLogin = () => {
-    console.log('Tentando login com:', email, senha);
-  
-    const usuarioValido = usuariosFake.find(
-      user => user.email === email && user.senha === senha
-    );
-  
-    if (usuarioValido) {
-      console.log('Login válido');
-      router.replace('/menu');
-    } else {
-      console.log('Login inválido');
-      showAlert('Erro', 'E-mail ou senha inválidos!');
-    }
-  };
 
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Login</Text>
-      <View style={styles.boxInput}>
-      <CustomInput
-        titleInput="E-mail:"
-        setValue={setEmail}
-        value={email}
-        isSenha={false}
-        testID="input-email"
-      />
-      <CustomInput
-        titleInput="Senha:"
-        setValue={setSenha}
-        value={senha}
-        isSenha={true}
-        testID="input-senha"
-      />
+    <View style={style.container}>
+      <Text style={style.title}>Entrada</Text>
+      <Text style={style.subTitle}>Digite os dados abaixo para continuar:</Text>
+      <View style={style.boxMid}>
+        <View style={style.boxInput}>
+          <TextInput 
+              style={style.input}
+              placeholder="Nome completo"
+          />
+        </View>
+        <View style={style.boxInput}>
+          <TextInput
+              style={style.input}
+              placeholder="Telefone"
+              secureTextEntry
+          />
+        </View>
       </View>
-      <TouchableOpacity style={styles.text}>
-        <Text>Esqueceu a senha?</Text>
-      </TouchableOpacity>
-      <TouchableOpacity
-        style={styles.button}
-        onPress={handleLogin}
-        testID="button-entrar"
-      >
-        <Text style={styles.textButton}>Entrar</Text>
-      </TouchableOpacity>
-      <View style={styles.divider}></View>
-      <TouchableOpacity style={[styles.text, { alignSelf: 'center' }]}>
-        <Text style={{ fontSize: 18, marginTop: -8 }}>Criar conta</Text>
-      </TouchableOpacity>
+      <View style={style.boxButton}>
+        <TouchableOpacity
+          style={style.button}
+          onPress={() => router.navigate('/menu')}  
+        >
+          <Text style={style.textButton}> Continuar </Text>
+        </TouchableOpacity>
+      </View>
     </View>
   );
 };
