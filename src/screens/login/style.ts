@@ -5,6 +5,7 @@ export const style = StyleSheet.create({
     container:{
         flex: 1,
         alignItems: 'center',
+        justifyContent: 'center',
         backgroundColor: '#fff',
         padding: 30
     },
@@ -20,7 +21,7 @@ export const style = StyleSheet.create({
     boxMid:{
         width: '100%',
         maxWidth: 400,
-        marginTop: 200,
+        marginTop: 80,
         gap: 20
     },
     boxInput:{
@@ -55,7 +56,7 @@ export const style = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
         borderRadius: 8,
-        marginTop: 200
+        marginTop: 80
     },
     textButton:{
         fontSize: 20,

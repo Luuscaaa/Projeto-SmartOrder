@@ -1,6 +1,5 @@
 import { StyleSheet } from "react-native";
 
-
 export const styles = StyleSheet.create({
     container:{
         flex: 1,
@@ -16,7 +15,7 @@ export const styles = StyleSheet.create({
     boxScroll:{
         height: '70%',
         marginTop: 50,
-        padding: 30,
+        padding: 15,
     },
     boxCards:{
         width: '100%',
@@ -25,8 +24,7 @@ export const styles = StyleSheet.create({
         flexDirection: 'row',
         flexWrap: 'wrap',
         justifyContent: 'center',
-        gap: 20,
-        marginVertical: '25%'
+        gap: 15,
     },
     cards:{
         alignItems: 'center',
@@ -67,3 +65,70 @@ export const styles = StyleSheet.create({
       },
 
 })
+
+export const modalStyles = StyleSheet.create({
+  overlay: {
+    flex: 1,
+    backgroundColor: "rgba(0,0,0,0.3)",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  modalContainer: {
+    width: "85%",
+    backgroundColor: "#fff",
+    padding: 20,
+    borderRadius: 12,
+    elevation: 10,
+    shadowColor: "#000",
+    shadowOpacity: 0.3,
+    shadowRadius: 6,
+  },
+  titulo: {
+    fontSize: 18,
+    fontWeight: "bold",
+    marginBottom: 4,
+    textAlign: "center",
+  },
+  subtitulo: {
+    fontSize: 14,
+    color: "#555",
+    textAlign: "center",
+    marginBottom: 12,
+  },
+  textInput: {
+    borderWidth: 1,
+    borderColor: "#ccc",
+    borderRadius: 8,
+    height: 80,
+    padding: 10,
+    textAlignVertical: "top",
+    marginBottom: 16,
+  },
+  botoes: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+  },
+  botaoCancelar: {
+    padding: 10,
+    borderWidth: 1,
+    borderColor: "#FF6C00",
+    borderRadius: 8,
+    width: "45%",
+    alignItems: "center",
+  },
+  textoCancelar: {
+    color: "#FF6C00",
+    fontWeight: "bold",
+  },
+  botaoConfirmar: {
+    padding: 10,
+    backgroundColor: "#FF6C00",
+    borderRadius: 8,
+    width: "45%",
+    alignItems: "center",
+  },
+  textoConfirmar: {
+    color: "#fff",
+    fontWeight: "bold",
+  },
+});

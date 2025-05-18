@@ -1,8 +1,32 @@
-import { Text, TextInput, TouchableOpacity, View } from "react-native";
+import { Alert, Text, TextInput, TouchableOpacity, View } from "react-native";
 import { style } from "./style";
 import { router } from "expo-router";
+import { useState } from "react";
 
 export const Login = () => {
+
+  const [nome, setNome] = useState("");
+  const [telefone, setTelefone] = useState("");
+
+  const handleContinuar = () => {
+    if (nome.trim() === "" || telefone.trim() === "") {
+    Alert.alert("Atenção", "Por favor, preencha todos os campos.");
+    return;
+    }
+    router.push({
+      pathname: "/home",
+      params: { nome, telefone }
+    });
+  };
+
+  const formatTelefone = (text: string) => {
+    const cleaned = text.replace(/\D/g, '');
+    if (cleaned.length <= 10) {
+      return cleaned.replace(/(\d{2})(\d{4})(\d{0,4})/, '($1) $2-$3');
+    } else {
+      return cleaned.replace(/(\d{2})(\d{5})(\d{0,4})/, '($1) $2-$3');
+    }
+  };
 
   return (
     <View style={style.container}>
@@ -13,20 +37,24 @@ export const Login = () => {
           <TextInput 
               style={style.input}
               placeholder="Nome completo"
+              value={nome}
+              onChangeText={setNome}
           />
         </View>
         <View style={style.boxInput}>
           <TextInput
               style={style.input}
               placeholder="Telefone"
-              secureTextEntry
+              keyboardType="phone-pad"
+              value={telefone}
+              onChangeText={(text) => setTelefone(formatTelefone(text))}
           />
         </View>
       </View>
       <View style={style.boxButton}>
         <TouchableOpacity
           style={style.button}
-          onPress={() => router.navigate('/menu')}  
+          onPress={handleContinuar}
         >
           <Text style={style.textButton}> Continuar </Text>
         </TouchableOpacity>
