@@ -4,39 +4,12 @@ import { FlatList, Pressable, ScrollView, Text, TouchableOpacity, View } from "r
 import { styles } from "./style"
 import React, { useState } from "react"
 import { Checkbox } from 'react-native-paper';
+import { useOrder } from '@/src/components/OrderContext';
 
 
 export const Conta = () => {
-    const [itens, setItens] = useState([
-        {
-        categoria: 'Executivo',
-        preco: '10.99',
-        },
-        {
-        categoria: 'Executivo',
-        preco: '10.99',
-        },
-        {
-        categoria: 'Executivo',
-        preco: '10.99',
-        },
-        {
-        categoria: 'Executivo',
-        preco: '10.99',
-        },
-        {
-        categoria: 'Executivo',
-        preco: '10.99',
-        },
-        {
-        categoria: 'Executivo',
-        preco: '10.99',
-        },
-        {
-        categoria: 'Executivo',
-        preco: '10.99',
-        },
-    ]);
+
+    const { orderItems, total } = useOrder();
 
     const renderItem = ({ item }: { item: { categoria: string; preco: string } }) => (
         <View style={styles.card}>
@@ -51,7 +24,7 @@ export const Conta = () => {
         </View>
     );
 
-    const [checked, setChecked] = useState(false);
+    const [selectedPayment, setSelectedPayment] = useState<'cartao' | 'vale' | 'pix' | null>(null);
 
     return(
         <View style={styles.container}>
@@ -69,10 +42,9 @@ export const Conta = () => {
                 <View style={styles.boxItens}>
                     <ScrollView>
                         <FlatList
-                            data={itens}
+                            data={orderItems}
                             renderItem={renderItem}
-                            keyExtractor={(item, index) => index.toString()}
-                            contentContainerStyle={styles.lista}
+                            keyExtractor={(_, i) => i.toString()}
                         />
                     </ScrollView>
                 </View>
@@ -81,7 +53,7 @@ export const Conta = () => {
                         <Text style={styles.textTotal}>Total</Text>
                     </View>
                     <View style={styles.boxValor}>
-                        <Text style={styles.textValor}>R$ 100,00</Text>
+                        <Text style={styles.textValor}>R$ {total.toFixed(2)}</Text>
                     </View>
                 </View>
             </View>
@@ -89,41 +61,49 @@ export const Conta = () => {
             <View style={styles.boxOptions}>
                 <View style={styles.checkboxContainer}>
                     <Checkbox
-                        status={checked ? 'checked' : 'unchecked'}
-                        onPress={() => {
-                            setChecked(!checked);
-                        } }
+                        status={selectedPayment === 'cartao' ? 'checked' : 'unchecked'}
+                        onPress={() => setSelectedPayment('cartao')}
                         color="#000"
-                        uncheckedColor="#000" />
+                        uncheckedColor="#000"
+                    />
                     <Text style={styles.label}>Cartão de Crédito ou Débito</Text>
                 </View>
                 <View style={styles.checkboxContainer}>
                     <Checkbox
-                        status={checked ? 'checked' : 'unchecked'}
-                        onPress={() => {
-                            setChecked(!checked);
-                        } }
+                        status={selectedPayment === 'vale' ? 'checked' : 'unchecked'}
+                        onPress={() => setSelectedPayment('vale')}
                         color="#000"
-                        uncheckedColor="#000" />
+                        uncheckedColor="#000"
+                    />
                     <Text style={styles.label}>Cartão Alimentação ou Refeição</Text>
                 </View>
+
                 <View style={styles.checkboxContainer}>
                     <Checkbox
-                        status={checked ? 'checked' : 'unchecked'}
-                        onPress={() => {
-                            setChecked(!checked);
-                        } }
+                        status={selectedPayment === 'pix' ? 'checked' : 'unchecked'}
+                        onPress={() => setSelectedPayment('pix')}
                         color="#000"
-                        uncheckedColor="#000" />
+                        uncheckedColor="#000"
+                    />
                     <Text style={styles.label}>Pix</Text>
                 </View>
-            </View>
-            <View style={styles.boxButton}>
-                <TouchableOpacity
-                    style={styles.button}
-                    onPress={() => router.navigate('/pag-cartao-cd')}>
-                    <Text style={styles.textButton}> Próximo </Text>
-                </TouchableOpacity>
+                <View style={styles.boxButton}>
+                    <TouchableOpacity
+                        style={styles.button}
+                        onPress={() => {
+                            if (selectedPayment === 'cartao') {
+                                router.push({ pathname: "/pag-cartao-cd", params: { total: total.toFixed(2) } });
+                            } else if (selectedPayment === 'vale') {
+                                router.push({ pathname: "/pag-cartao-cd", params: { total: total.toFixed(2) } });
+                            } else if (selectedPayment === 'pix') {
+                                router.push({ pathname: "/pag-pix", params: { total: total.toFixed(2) } });
+                            } else {
+                                alert("Selecione uma forma de pagamento.");
+                            }
+                        }}>
+                        <Text style={styles.textButton}> Próximo </Text>
+                    </TouchableOpacity>
+                </View>
             </View>
         </View>
     )

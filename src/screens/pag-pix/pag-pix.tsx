@@ -5,27 +5,31 @@ import { styles } from "./style";
 import QRCode from "react-native-qrcode-svg";
 import { useState, useEffect } from "react";
 import { QrCodePix } from "qrcode-pix";
+import { useLocalSearchParams } from "expo-router"
 
 export const PagPix = () => {
-  const [valor, setValor] = useState("30.00"); // valor inicial
+
   const [codigoPix, setCodigoPix] = useState("");
+  const { total } = useLocalSearchParams();
 
   useEffect(() => {
-    const gerarPix = async () => {
+  const gerarPix = async () => {
+      const valor = parseFloat((typeof total === 'string' ? total : String(total)).replace(',', '.')) || 0;
+
       const qrCodePix = QrCodePix({
         version: '01',
-        key: '+5511998297808', // sua chave pix
-        name: 'Lucas Santana', // nome do recebedor
-        city: 'TABOAO DA SERRA',   // cidade
-        value: parseFloat(valor.replace(',', '.'))
+        key: '+5511998297808',
+        name: 'Lucas Santana',
+        city: 'TABOAO DA SERRA',
+        value: valor
       });
 
       const payload = await qrCodePix.payload();
       setCodigoPix(payload);
     };
 
-    gerarPix();
-  }, [valor]);
+    if (total) gerarPix();
+  }, [total]);
 
   return (
     <View style={styles.container}>

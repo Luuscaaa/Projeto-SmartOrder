@@ -2,30 +2,22 @@ import { FlatList, Image, Pressable, ScrollView, Text, TouchableOpacity, View } 
 import { styles } from "./style"
 import { Ionicons, MaterialIcons } from "@expo/vector-icons"
 import { router } from "expo-router"
-import { useState } from "react"
+import { useCart } from "@/src/components/CartContext"
+import { useOrder } from '@/src/components/OrderContext';
 
 export const CarrinhoPedidos = () => {
-    const [itens, setItens] = useState([
-        {
-        imagem: 'https://images.unsplash.com/photo-1624726175512-19b9baf9fbd1?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Y29taWRhc3xlbnwwfHwwfHx8MA%3D%3D',
-        categoria: 'Executivo',
-        descricao: 'Suculento pedaço de carne acompanhado com fritas',
-        preco: '10.99',
-        },
-        {
-        imagem: 'https://images.unsplash.com/photo-1624726175512-19b9baf9fbd1?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Y29taWRhc3xlbnwwfHwwfHx8MA%3D%3D',
-        categoria: 'Executivo',
-        descricao: 'Suculento pedaço de carne acompanhado com fritas',
-        preco: '10.99',
-        },
-        {
-        imagem: 'https://images.unsplash.com/photo-1624726175512-19b9baf9fbd1?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Y29taWRhc3xlbnwwfHwwfHx8MA%3D%3D',
-        categoria: 'Executivo',
-        descricao: 'Suculento pedaço de carne acompanhado com fritas',
-        preco: '10.99',
-        },
-    ]);
-    
+
+    const { cartItems, clearCart } = useCart();
+     const { setOrder } = useOrder();
+
+    const handleFinalize = () => {
+        setOrder(cartItems);   // guarda para a tela Conta
+        clearCart();           // esvazia o carrinho
+        router.navigate('/pedido-confirmado');
+    };
+
+    const total = cartItems.reduce((sum, item) => sum + parseFloat(item.preco), 0).toFixed(2);
+
     const renderItem = ({ item }: { item: { imagem: string; categoria: string; descricao: string; preco: string } }) => (
         <View style={styles.card}>
             <Image source={{ uri: item.imagem }} style={styles.imagem} />
@@ -51,10 +43,9 @@ export const CarrinhoPedidos = () => {
             <View style={styles.boxItens}>
                 <ScrollView>
                     <FlatList
-                        data={itens}
+                        data={cartItems}
                         renderItem={renderItem}
                         keyExtractor={(item, index) => index.toString()}
-                        contentContainerStyle={styles.lista}
                     />
                 </ScrollView>
             </View>
@@ -63,13 +54,13 @@ export const CarrinhoPedidos = () => {
                     <Text style={styles.textTotal}>Total</Text>
                 </View>
                 <View style={styles.boxValor}>
-                    <Text style={styles.textValor}>R$ 100,00</Text>
+                    <Text style={styles.textValor}>R$ {total}</Text>
                 </View>
             </View>
             <View style={styles.boxButton}>
                 <TouchableOpacity
                     style={styles.button}
-                    onPress={() => router.navigate('/pedido-confirmado')}  
+                    onPress={handleFinalize}
                 >
                     <Text style={styles.textButton}> Finalizar pedido </Text>
                 </TouchableOpacity>

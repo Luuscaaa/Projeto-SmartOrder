@@ -4,11 +4,12 @@ import { Pressable, Text, TextInput, TouchableOpacity, View, ActivityIndicator, 
 import { styles } from "./style";
 import React, { useState, useRef } from "react";
 import * as Animatable from "react-native-animatable";
+import { useLocalSearchParams } from "expo-router"
 
 export const PagamentoAproximacao = () => {
   const [status, setStatus] = useState<'aguardando' | 'processando' | 'concluido'>('aguardando');
   const cardRef = useRef<any>(null);
-
+  const { total } = useLocalSearchParams();
 
   const handleAproximar = () => {
     if (status !== 'aguardando') return;
@@ -53,6 +54,7 @@ export const PagamentoAproximacao = () => {
             >
                 <Image source={require('../../images/nfc-reader.png')}/>
             </Animatable.View>
+            {status === 'aguardando' && <Text style={{ fontSize: 22, fontWeight: '600'}}> R$ {total}</Text>}
             {status === 'processando' && <ActivityIndicator size="large" color="#000" style={{ marginTop: 50 }} />}
         </TouchableOpacity>
     </View>

@@ -2,7 +2,6 @@ import { Image, Text, TouchableOpacity, View } from "react-native"
 import { styles } from "./style"
 import { router } from "expo-router"
 
-
 export const PagamentoConcluido = () => {
     return(
         <View style={styles.container}>

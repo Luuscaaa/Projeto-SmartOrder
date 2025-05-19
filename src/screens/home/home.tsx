@@ -4,6 +4,10 @@ import { modalStyles, styles } from "./style";
 import { FontAwesome, MaterialIcons } from "@expo/vector-icons";
 import { useLocalSearchParams } from "expo-router"
 import { router } from "expo-router";
+import { useFocusEffect } from '@react-navigation/native';
+import { useCart } from '@/src/components/CartContext'
+import { useCallback } from 'react';
+
 
 export const Home = () => {
   const [modalVisible, setModalVisible] = useState(false);
@@ -15,6 +19,14 @@ export const Home = () => {
     setModalVisible(false);
     setMensagem("");
   };
+
+  const { clearCart } = useCart();
+  useFocusEffect(
+    useCallback(() => {
+      clearCart();
+    }, [])
+  );
+
 
   return (
     <View style={styles.container}>
