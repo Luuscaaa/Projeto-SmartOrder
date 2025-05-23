@@ -1,4 +1,4 @@
-import { Ionicons, MaterialIcons } from "@expo/vector-icons";
+import { Ionicons, MaterialCommunityIcons, MaterialIcons } from "@expo/vector-icons";
 import { router } from "expo-router";
 import { FlatList, Image, Pressable, Text, TouchableOpacity, View } from "react-native";
 import { styles } from "./style";
@@ -19,9 +19,18 @@ export const Cardapio = () => {
             <Image source={{ uri: item.imagem }} style={styles.imagem} />
             <View style={styles.info}>
                 <Text style={styles.categoria}>{item.categoria}</Text>
-                <Text>{item.descricao}</Text>
-                <TouchableOpacity onPress={() => addToCart(item)}>
+                <Text style={styles.descricao}>{item.descricao}</Text>
+                <TouchableOpacity 
+                    onPress={() => addToCart(item)}
+                    style={{ flexDirection: 'row', alignSelf: "flex-end"}}
+                >
                     <Text style={styles.preco}>R${item.preco}</Text>
+                    <MaterialCommunityIcons
+                        name='cart-plus'
+                        size={20}
+                        color={'green'}
+                        style={{ marginTop: 10, marginLeft: 7, marginRight: 5 }}
+                    />
                 </TouchableOpacity>
             </View>
         </View>
@@ -30,7 +39,7 @@ export const Cardapio = () => {
     return (
         <View style={styles.container}>
             <View style={styles.boxBackButton}>
-                <Pressable onPress={() => router.navigate('/cardapio')}>
+                <Pressable onPress={() => router.navigate('/home')}>
                     <Ionicons
                         name="arrow-back"
                         size={24}

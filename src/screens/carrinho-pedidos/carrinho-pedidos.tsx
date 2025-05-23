@@ -7,12 +7,12 @@ import { useOrder } from '@/src/components/OrderContext';
 
 export const CarrinhoPedidos = () => {
 
-    const { cartItems, clearCart } = useCart();
-     const { setOrder } = useOrder();
+    const { cartItems, clearCart, removeFromCart } = useCart();
+    const { setOrder } = useOrder();
 
     const handleFinalize = () => {
-        setOrder(cartItems);   // guarda para a tela Conta
-        clearCart();           // esvazia o carrinho
+        setOrder(cartItems); 
+        clearCart();         
         router.navigate('/pedido-confirmado');
     };
 
@@ -21,11 +21,22 @@ export const CarrinhoPedidos = () => {
     const renderItem = ({ item }: { item: { imagem: string; categoria: string; descricao: string; preco: string } }) => (
         <View style={styles.card}>
             <Image source={{ uri: item.imagem }} style={styles.imagem} />
-                <View style={styles.info}>
-                    <Text style={styles.categoria}>{item.categoria}</Text>
-                    <Text>{item.descricao}</Text>
+            <View style={styles.info}>
+                <Text style={styles.categoria}>{item.categoria}</Text>
+                <Text style={styles.descricao}>{item.descricao}</Text>
+                <TouchableOpacity 
+                    onPress={() => removeFromCart(item)}
+                    style={{ flexDirection: 'row', alignSelf: "flex-end"}}
+                >
                     <Text style={styles.preco}>R${item.preco}</Text>
-                </View>
+                    <MaterialIcons
+                        name='cancel'
+                        size={20}
+                        color={'red'}
+                        style={{ marginTop: 10, marginLeft: 7, marginRight: 5 }}
+                    />
+                </TouchableOpacity>
+            </View>
         </View>
     );
     return(
@@ -36,7 +47,7 @@ export const CarrinhoPedidos = () => {
                         name="arrow-back"
                         size={24}
                         color={'#FA931D'}
-                        onPress={() => router.navigate('/home')} />
+                        onPress={() => router.navigate('/cardapio')} />
                 </Pressable>
             </View>
             <Text style={styles.title}>Carrinho</Text>

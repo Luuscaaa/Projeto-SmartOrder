@@ -76,7 +76,8 @@ export const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
         borderWidth: 2,
-        borderRadius: 30
+        borderRadius: 30,
+        borderColor: '#FA931D'
     },
     textTotal:{
         fontSize: 26,

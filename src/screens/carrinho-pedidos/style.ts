@@ -23,16 +23,23 @@ export const styles = StyleSheet.create({
     },
     card: {
         flexDirection: 'row',
-        borderWidth: 1,
+        width: '100%',
+        maxWidth: 400,
+        height: 100,
         borderRadius: 8,
-        padding: 12,
+        padding: 5,
         marginBottom: 12,
         alignItems: 'center',
         backgroundColor: '#fff',
+        elevation: 5,
+        shadowColor: '#000',
+        shadowOffset: { width: 0, height: 3 },
+        shadowOpacity: 0.5,
+        shadowRadius: 5,
     },
     imagem: {
-        width: 60,
-        height: 60,
+        width: 90,
+        height: 90,
         borderRadius: 8,
         marginRight: 12,
     },
@@ -41,13 +48,19 @@ export const styles = StyleSheet.create({
     },
     categoria: {
         fontWeight: 'bold',
-        color: '#888',
         marginBottom: 4,
+        alignSelf: 'flex-start',
+        fontSize: 16,
+    },
+    descricao:{
+        color: '#888',
+        alignSelf: 'flex-start'
     },
     preco: {
-        marginTop: 4,
+        marginTop: 10,
         fontWeight: 'bold',
         alignSelf: 'flex-end',
+        fontSize: 16,
     },
     lista: {
         padding: 16,
@@ -107,7 +120,8 @@ export const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
         borderWidth: 2,
-        borderRadius: 30
+        borderRadius: 30,
+        borderColor: '#FA931D'
     },
     textTotal:{
         fontSize: 26,

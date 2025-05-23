@@ -9,15 +9,15 @@ import { useOrder } from '@/src/components/OrderContext';
 
 export const Conta = () => {
 
-    const { orderItems, total } = useOrder();
+    const { orderItems, total, clearOrder } = useOrder();
 
     const renderItem = ({ item }: { item: { categoria: string; preco: string } }) => (
         <View style={styles.card}>
                 <View style={styles.info}>
-                    <View style={{ width: '50%'}}>
+                    <View style={{ width: '70%'}}>
                         <Text style={styles.categoria}>{item.categoria}</Text>
                     </View>
-                    <View style={{ width: '50%'}}>
+                    <View style={{ width: '30%'}}>
                         <Text style={styles.preco}>R${item.preco}</Text>
                     </View>
                 </View>
@@ -57,7 +57,7 @@ export const Conta = () => {
                     </View>
                 </View>
             </View>
-            <Text style={styles.titleOptions}>Opções de pagamento</Text>
+            <Text style={styles.titleOptions}>Opções de pagamento:</Text>
             <View style={styles.boxOptions}>
                 <View style={styles.checkboxContainer}>
                     <Checkbox
@@ -92,10 +92,13 @@ export const Conta = () => {
                         style={styles.button}
                         onPress={() => {
                             if (selectedPayment === 'cartao') {
+                                clearOrder()
                                 router.push({ pathname: "/pag-cartao-cd", params: { total: total.toFixed(2) } });
                             } else if (selectedPayment === 'vale') {
+                                clearOrder()
                                 router.push({ pathname: "/pag-cartao-cd", params: { total: total.toFixed(2) } });
                             } else if (selectedPayment === 'pix') {
+                                clearOrder()
                                 router.push({ pathname: "/pag-pix", params: { total: total.toFixed(2) } });
                             } else {
                                 alert("Selecione uma forma de pagamento.");

@@ -1,6 +1,5 @@
-import { Ionicons } from "@expo/vector-icons";
 import { router } from "expo-router";
-import { Pressable, Text, TextInput, TouchableOpacity, View, ActivityIndicator, Image } from "react-native";
+import { Text, TouchableOpacity, View, ActivityIndicator, Image } from "react-native";
 import { styles } from "./style";
 import React, { useState, useRef } from "react";
 import * as Animatable from "react-native-animatable";
@@ -26,14 +25,6 @@ export const PagamentoAproximacao = () => {
   return (
     <View style={styles.container}>
         <View style={styles.boxBackButton}>
-            <Pressable>
-            <Ionicons
-                name="arrow-back"
-                size={24}
-                color={'#FA931D'}
-                onPress={() => router.navigate('/home')}
-            />
-            </Pressable>
         </View>
         <Text style={styles.title}>Pagamento via Cartão</Text>
         <Text style={styles.infos}>
@@ -54,7 +45,7 @@ export const PagamentoAproximacao = () => {
             >
                 <Image source={require('../../images/nfc-reader.png')}/>
             </Animatable.View>
-            {status === 'aguardando' && <Text style={{ fontSize: 22, fontWeight: '600'}}> R$ {total}</Text>}
+            {status === 'aguardando' && <Text style={{ fontSize: 22, fontWeight: '600', marginRight: 20}}> R$ {total}</Text>}
             {status === 'processando' && <ActivityIndicator size="large" color="#000" style={{ marginTop: 50 }} />}
         </TouchableOpacity>
     </View>

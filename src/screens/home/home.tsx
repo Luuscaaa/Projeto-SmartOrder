@@ -42,14 +42,14 @@ export const Home = () => {
               <Text style={styles.textCard}>Cardápio</Text>
             </TouchableOpacity>
 
-            <TouchableOpacity style={styles.cards}>
+            {/* <TouchableOpacity style={styles.cards}>
               <MaterialIcons
                 name="format-list-bulleted"
                 size={70}
                 color={"#fff"}
               />
               <Text style={styles.textCard}>Pedidos</Text>
-            </TouchableOpacity>
+            </TouchableOpacity> */}
 
             <TouchableOpacity
               style={styles.cards}
@@ -77,14 +77,29 @@ export const Home = () => {
       </View>
 
       <View style={styles.bottomMenu}>
-        <TouchableOpacity style={styles.menuItem}>
-          <MaterialIcons name="home" size={35} color="black" />
+        <TouchableOpacity 
+          style={styles.menuItem}
+          onPress={() => router.navigate("/cardapio")}>
+          <FontAwesome 
+            name="cutlery" 
+            size={35} 
+            color="black" />
         </TouchableOpacity>
-        <TouchableOpacity style={styles.menuItem}>
-          <MaterialIcons name="format-list-bulleted" size={35} color="black" />
+        <TouchableOpacity 
+          style={styles.menuItem}
+          onPress={() => setModalVisible(true)}>
+          <MaterialIcons 
+            name="mark-unread-chat-alt"
+            size={35} 
+            color="black" />
         </TouchableOpacity>
-        <TouchableOpacity style={styles.menuItem}>
-          <MaterialIcons name="person" size={35} color="black" />
+        <TouchableOpacity 
+          style={styles.menuItem}
+          onPress={() => router.navigate("/conta")}>
+          <MaterialIcons 
+            name="attach-money" 
+            size={40} 
+            color="black" />
         </TouchableOpacity>
       </View>
 
@@ -96,14 +111,14 @@ export const Home = () => {
       >
         <View style={modalStyles.overlay}>
           <View style={modalStyles.modalContainer}>
-            <Text style={modalStyles.titulo}>Solicitar ajuda do garçom</Text>
+            <Text style={modalStyles.titulo}>Solicitar ajuda ao garçom</Text>
             <Text style={modalStyles.subtitulo}>
               {nome} - {telefone}
             </Text>
 
             <TextInput
               style={modalStyles.textInput}
-              placeholder="Digite brevemente o que você precisa"
+              placeholder="Como posso ajudar?"
               multiline
               value={mensagem}
               onChangeText={setMensagem}

@@ -1,8 +1,15 @@
 import { Image, Text, TouchableOpacity, View } from "react-native"
 import { styles } from "./style"
 import { router } from "expo-router"
+import { useUser } from '@/src/components/UserContext'
+import { useLocalSearchParams } from "expo-router"
+import { useOrder } from '@/src/components/OrderContext';
 
 export const PagamentoConcluido = () => {
+
+    const { user } = useUser();
+    const { total } = useOrder();
+
     return(
         <View style={styles.container}>
             <Text style={styles.title}> Pagamento Concluido </Text>
@@ -11,8 +18,8 @@ export const PagamentoConcluido = () => {
                 style={styles.image}
                 />
             <Text style={styles.title}> Comprovante </Text>
-            <Text style={styles.text}> Cliente: {'\n'} Lucas </Text>
-            <Text style={styles.text}> Valor pago: {'\n'} R$ 30,00 </Text>
+            <Text style={styles.text}> Cliente: {'\n'} {user.nome} </Text>
+            <Text style={styles.text}> Valor pago: {'\n'} {total} </Text>
             <View style={styles.boxButton}>
                 <TouchableOpacity
                     style={styles.button}

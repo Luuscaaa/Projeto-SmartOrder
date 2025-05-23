@@ -2,8 +2,11 @@ import { Alert, Text, TextInput, TouchableOpacity, View } from "react-native";
 import { style } from "./style";
 import { router } from "expo-router";
 import { useState } from "react";
+import { useUser } from "@/src/components/UserContext";
 
 export const Login = () => {
+
+  const { setUser } = useUser();
 
   const [nome, setNome] = useState("");
   const [telefone, setTelefone] = useState("");
@@ -13,10 +16,8 @@ export const Login = () => {
     Alert.alert("Atenção", "Por favor, preencha todos os campos.");
     return;
     }
-    router.push({
-      pathname: "/home",
-      params: { nome, telefone }
-    });
+    setUser({ nome, telefone });
+    router.push("/home");
   };
 
   const formatTelefone = (text: string) => {

@@ -34,14 +34,6 @@ export const PagPix = () => {
   return (
     <View style={styles.container}>
       <View style={styles.boxBackButton}>
-        <Pressable>
-          <Ionicons
-            name="arrow-back"
-            size={24}
-            color={'#FA931D'}
-            onPress={() => router.navigate('/home')}
-          />
-        </Pressable>
       </View>
 
       <Text style={styles.title}>Pagamento via Pix</Text>
@@ -59,7 +51,7 @@ export const PagPix = () => {
       <View style={styles.boxButton}>
         <TouchableOpacity
           style={styles.button}
-          onPress={() => router.navigate('/')}>
+          onPress={() => router.navigate('/pagamento-concluido')}>
           <Text style={styles.textButton}>Já paguei</Text>
         </TouchableOpacity>
       </View>

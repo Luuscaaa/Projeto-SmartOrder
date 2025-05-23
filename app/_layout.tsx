@@ -8,6 +8,7 @@ import 'react-native-reanimated';
 import { useColorScheme } from '@/hooks/useColorScheme';
 import { CartProvider } from '@/src/components/CartContext'
 import { OrderProvider }  from '@/src/components/OrderContext';
+import { UserProvider } from '@/src/components/UserContext';
 
 
 // Prevent the splash screen from auto-hiding before asset loading is complete.
@@ -33,18 +34,20 @@ export default function RootLayout() {
     <ThemeProvider value={DefaultTheme}>
       <CartProvider>
         <OrderProvider>
-          <Stack>
-            <Stack.Screen name="index" options={{ headerShown: false }}/>
-            <Stack.Screen name="(panel)/login" options={{ headerShown: false }}/>
-            <Stack.Screen name="(panel)/home" options={{ headerShown: false }}/>
-            <Stack.Screen name="(panel)/cardapio" options={{ headerShown: false }}/>
-            <Stack.Screen name="(panel)/carrinho-pedidos" options={{ headerShown: false }}/>
-            <Stack.Screen name="(panel)/pedido-confirmado" options={{ headerShown: false }}/>
-            <Stack.Screen name="(panel)/conta" options={{ headerShown: false }}/>
-            <Stack.Screen name="(panel)/pag-pix" options={{ headerShown: false }}/>
-            <Stack.Screen name="(panel)/pag-cartao-cd" options={{ headerShown: false }}/>
-            <Stack.Screen name="(panel)/pagamento-concluido" options={{ headerShown: false }}/>
-          </Stack>
+          <UserProvider>
+            <Stack>
+              <Stack.Screen name="index" options={{ headerShown: false }}/>
+              <Stack.Screen name="(panel)/login" options={{ headerShown: false }}/>
+              <Stack.Screen name="(panel)/home" options={{ headerShown: false }}/>
+              <Stack.Screen name="(panel)/cardapio" options={{ headerShown: false }}/>
+              <Stack.Screen name="(panel)/carrinho-pedidos" options={{ headerShown: false }}/>
+              <Stack.Screen name="(panel)/pedido-confirmado" options={{ headerShown: false }}/>
+              <Stack.Screen name="(panel)/conta" options={{ headerShown: false }}/>
+              <Stack.Screen name="(panel)/pag-pix" options={{ headerShown: false }}/>
+              <Stack.Screen name="(panel)/pag-cartao-cd" options={{ headerShown: false }}/>
+              <Stack.Screen name="(panel)/pagamento-concluido" options={{ headerShown: false }}/>
+            </Stack>
+          </UserProvider>
         </OrderProvider>
       </CartProvider>
       <StatusBar style="auto" />

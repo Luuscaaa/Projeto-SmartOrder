@@ -29,13 +29,13 @@ export const styles = StyleSheet.create({
     cards:{
         alignItems: 'center',
         justifyContent: 'center',
-        height: 150,
-        width: 150,
+        height: 200,
+        width: 200,
         borderRadius: 15,
         backgroundColor: '#FA931D'
     },
     textCard:{
-        fontSize: 15,
+        fontSize: 20,
         textAlign: 'center',
         marginTop: 10,
         color: '#fff'
@@ -74,7 +74,9 @@ export const modalStyles = StyleSheet.create({
     alignItems: "center",
   },
   modalContainer: {
-    width: "85%",
+    width: "90%",
+    maxWidth: 400,
+    height: 400,
     backgroundColor: "#fff",
     padding: 20,
     borderRadius: 12,
@@ -84,29 +86,31 @@ export const modalStyles = StyleSheet.create({
     shadowRadius: 6,
   },
   titulo: {
-    fontSize: 18,
+    fontSize: 20,
     fontWeight: "bold",
-    marginBottom: 4,
+    marginBottom: 15,
     textAlign: "center",
   },
   subtitulo: {
-    fontSize: 14,
+    fontSize: 16,
     color: "#555",
     textAlign: "center",
-    marginBottom: 12,
+    marginBottom: 20,
   },
   textInput: {
     borderWidth: 1,
     borderColor: "#ccc",
     borderRadius: 8,
-    height: 80,
-    padding: 10,
+    height: 200,
+    padding: 15,
     textAlignVertical: "top",
     marginBottom: 16,
+    fontSize: 16
   },
   botoes: {
     flexDirection: "row",
     justifyContent: "space-between",
+    marginTop: 20
   },
   botaoCancelar: {
     padding: 10,
@@ -119,6 +123,7 @@ export const modalStyles = StyleSheet.create({
   textoCancelar: {
     color: "#FF6C00",
     fontWeight: "bold",
+    fontSize: 16
   },
   botaoConfirmar: {
     padding: 10,
@@ -130,5 +135,6 @@ export const modalStyles = StyleSheet.create({
   textoConfirmar: {
     color: "#fff",
     fontWeight: "bold",
+    fontSize: 16
   },
 });
