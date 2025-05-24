@@ -7,18 +7,20 @@ import { router } from "expo-router";
 import { useFocusEffect } from '@react-navigation/native';
 import { useCart } from '@/src/components/CartContext'
 import { useCallback } from 'react';
+import { useUser } from '@/src/components/UserContext'
 
 
 export const Home = () => {
   const [modalVisible, setModalVisible] = useState(false);
   const [mensagem, setMensagem] = useState("");
   const { nome, telefone } = useLocalSearchParams();
+  const { user } = useUser();
 
-  const handleSolicitar = () => {
+  function handleSolicitar() {
     console.log("Mensagem enviada:", mensagem);
     setModalVisible(false);
     setMensagem("");
-  };
+  }
 
   const { clearCart } = useCart();
   useFocusEffect(
@@ -75,7 +77,6 @@ export const Home = () => {
           </View>
         </ScrollView>
       </View>
-
       <View style={styles.bottomMenu}>
         <TouchableOpacity 
           style={styles.menuItem}
@@ -87,18 +88,18 @@ export const Home = () => {
         </TouchableOpacity>
         <TouchableOpacity 
           style={styles.menuItem}
-          onPress={() => setModalVisible(true)}>
+          onPress={() => router.navigate("/conta")}>
           <MaterialIcons 
-            name="mark-unread-chat-alt"
-            size={35} 
+            name="attach-money" 
+            size={42} 
             color="black" />
         </TouchableOpacity>
         <TouchableOpacity 
           style={styles.menuItem}
-          onPress={() => router.navigate("/conta")}>
+          onPress={() => setModalVisible(true)}>
           <MaterialIcons 
-            name="attach-money" 
-            size={40} 
+            name="mark-unread-chat-alt"
+            size={35} 
             color="black" />
         </TouchableOpacity>
       </View>
@@ -113,7 +114,7 @@ export const Home = () => {
           <View style={modalStyles.modalContainer}>
             <Text style={modalStyles.titulo}>Solicitar ajuda ao garçom</Text>
             <Text style={modalStyles.subtitulo}>
-              {nome} - {telefone}
+              {user.nome} - {user.telefone}
             </Text>
 
             <TextInput

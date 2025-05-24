@@ -24,8 +24,6 @@ export const PagamentoAproximacao = () => {
 
   return (
     <View style={styles.container}>
-        <View style={styles.boxBackButton}>
-        </View>
         <Text style={styles.title}>Pagamento via Cartão</Text>
         <Text style={styles.infos}>
             {status === 'aguardando' && 'Aproxime seu cartão ou dispositivo \n (toque aqui para simular)'}

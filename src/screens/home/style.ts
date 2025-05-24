@@ -5,7 +5,7 @@ export const styles = StyleSheet.create({
         flex: 1,
         alignItems: 'center',
         backgroundColor: '#fff',
-        padding: 30
+        padding: 20
     },
     title:{
         fontSize: 35,
@@ -47,9 +47,8 @@ export const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'space-around',
         alignItems: 'center',
-        borderWidth: 1,
+        borderTopWidth: 1 ,
         borderColor: '#ccc',
-        maxWidth: 400,
         width: '100%'
       },
       

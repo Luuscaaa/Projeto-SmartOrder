@@ -9,14 +9,14 @@ export const styles = StyleSheet.create({
         backgroundColor: '#fff'
     },
     boxBackButton: {
-        marginTop: 40,
+        marginTop: 100,
         width: '100%',
         maxWidth: 700,
     },
     title:{
         fontSize: 30,
         fontWeight: 'bold',
-        marginTop: 10
+        marginTop: 70
     },
     infos:{
         marginTop: 100,
@@ -25,15 +25,15 @@ export const styles = StyleSheet.create({
         textAlign: 'center',
         width: '100%',
         maxWidth: 400,
-        height: 70
+        height: 100
     },
     animatable:{
         width: 300,
         height: 300,
-        borderRadius: 15,
         justifyContent: 'center',
         alignItems: 'center',
-        elevation: 5,
-        marginTop: 50
+        elevation: 0,
+        marginTop: 0,
+        marginBottom: 40
     }
 })

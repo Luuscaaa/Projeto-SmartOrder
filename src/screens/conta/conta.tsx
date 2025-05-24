@@ -92,13 +92,10 @@ export const Conta = () => {
                         style={styles.button}
                         onPress={() => {
                             if (selectedPayment === 'cartao') {
-                                clearOrder()
                                 router.push({ pathname: "/pag-cartao-cd", params: { total: total.toFixed(2) } });
                             } else if (selectedPayment === 'vale') {
-                                clearOrder()
                                 router.push({ pathname: "/pag-cartao-cd", params: { total: total.toFixed(2) } });
                             } else if (selectedPayment === 'pix') {
-                                clearOrder()
                                 router.push({ pathname: "/pag-pix", params: { total: total.toFixed(2) } });
                             } else {
                                 alert("Selecione uma forma de pagamento.");

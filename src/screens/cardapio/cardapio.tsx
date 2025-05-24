@@ -83,18 +83,6 @@ export const Cardapio = () => {
                     <Text style={styles.textButton}>Ir para o carrinho</Text>
                 </TouchableOpacity>
             </View>
-
-            <View style={styles.bottomMenu}>
-                <TouchableOpacity style={styles.menuItem}>
-                    <MaterialIcons name="home" size={35} color='black' />
-                </TouchableOpacity>
-                <TouchableOpacity style={styles.menuItem}>
-                    <MaterialIcons name="format-list-bulleted" size={35} color='black' />
-                </TouchableOpacity>
-                <TouchableOpacity style={styles.menuItem}>
-                    <MaterialIcons name="person" size={35} color='black' />
-                </TouchableOpacity>
-            </View>
         </View>
     );
 }

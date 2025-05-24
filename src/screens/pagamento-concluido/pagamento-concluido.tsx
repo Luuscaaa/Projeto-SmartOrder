@@ -8,7 +8,7 @@ import { useOrder } from '@/src/components/OrderContext';
 export const PagamentoConcluido = () => {
 
     const { user } = useUser();
-    const { total } = useOrder();
+    const { orderItems, total, clearOrder } = useOrder();
 
     return(
         <View style={styles.container}>
@@ -19,11 +19,15 @@ export const PagamentoConcluido = () => {
                 />
             <Text style={styles.title}> Comprovante </Text>
             <Text style={styles.text}> Cliente: {'\n'} {user.nome} </Text>
-            <Text style={styles.text}> Valor pago: {'\n'} {total} </Text>
+            <Text style={styles.text}> Valor pago: {'\n'} {total.toFixed(2)} </Text>
             <View style={styles.boxButton}>
                 <TouchableOpacity
                     style={styles.button}
-                    onPress={() => router.navigate('/')}>
+                    onPress={() => {
+                        router.navigate('/');
+                        clearOrder();
+                        }}
+                >
                     <Text style={styles.textButton}> Sair </Text>
                 </TouchableOpacity>
             </View>

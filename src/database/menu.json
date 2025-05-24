@@ -56,7 +56,7 @@
     },
     {
       "imagem": "https://media.istockphoto.com/id/1386740486/pt/foto/shepherds-pie-made-of-potato-and-stuffed-with-jerked-beef.jpg?b=1&s=612x612&w=0&k=20&c=2bqeQ2EG35CqpPfef-bM_vMRv-0GaCoH39EtjBR3-oM=",
-      "categoria": "Escondidinho de Carne Seca",
+      "categoria": "Escondidinho de Carne",
       "descricao": "Carne seca desfiada com purê de mandioca.",
       "preco": "29.00"
     }
@@ -126,61 +126,61 @@
   "bebidas": [
     {
       "imagem": "https://images.unsplash.com/photo-1624552184280-9e9631bbeee9?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8Q29jYSUyMENvbGF8ZW58MHx8MHx8fDI%3D",
-      "categoria": "Refrigerante - Coca-Cola",
+      "categoria": "Coca-Cola",
       "descricao": "Lata de Coca-Cola gelada (350ml).",
       "preco": "5.00"
     },
     {
       "imagem": "https://images.unsplash.com/photo-1533007716222-4b465613a984?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cmVmcmlnZXJhbnRlfGVufDB8fDB8fHwy",
-      "categoria": "Refrigerante - Guaraná Antarctica",
+      "categoria": "Guaraná Antarctica",
       "descricao": "Lata de Guaraná Antarctica (350ml).",
       "preco": "5.00"
     },
     {
       "imagem": "https://images.pexels.com/photos/30900665/pexels-photo-30900665.jpeg?auto=compress&cs=tinysrgb&w=600",
-      "categoria": "Suco Natural - Laranja",
+      "categoria": "Suco de Laranja",
       "descricao": "Suco de laranja natural, sem açúcar (300ml).",
       "preco": "6.00"
     },
     {
       "imagem": "https://images.unsplash.com/photo-1457518919282-b199744eefd6?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8U3VjbyUyMGRlJTIwdXZhfGVufDB8fDB8fHwy",
-      "categoria": "Suco Integral - Uva Aurora",
+      "categoria": "Suco de Uva",
       "descricao": "Suco de uva integral Aurora (300ml).",
       "preco": "7.00"
     },
     {
       "imagem": "https://images.unsplash.com/photo-1606673993554-a5f993a16e0d?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8U3VjbyUyMGRlJTIwbWFyYWN1amF8ZW58MHx8MHx8fDI%3D",
-      "categoria": "Suco Natural - Maracujá",
+      "categoria": "Suco de Maracujá",
       "descricao": "Suco de maracujá fresco com água gelada (300ml).",
       "preco": "6.00"
     },
     {
       "imagem": "https://images.pexels.com/photos/40594/lemon-tea-cold-beverages-summer-offerings-40594.jpeg?auto=compress&cs=tinysrgb&w=600",
-      "categoria": "Chá Gelado - Pêssego Lipton",
+      "categoria": "Chá Gelado",
       "descricao": "Chá gelado Lipton sabor pêssego (350ml).",
       "preco": "5.50"
     },
     {
       "imagem": "https://images.pexels.com/photos/327090/pexels-photo-327090.jpeg?auto=compress&cs=tinysrgb&w=600",
-      "categoria": "Água Mineral - Crystal",
+      "categoria": "Água Mineral",
       "descricao": "Garrafa de água Crystal sem gás (500ml).",
       "preco": "3.00"
     },
     {
       "imagem": "https://images.pexels.com/photos/9009821/pexels-photo-9009821.jpeg?auto=compress&cs=tinysrgb&w=600",
-      "categoria": "Água com Gás - Perrier",
+      "categoria": "Água com Gás",
       "descricao": "Água com gás Perrier (330ml).",
       "preco": "6.00"
     },
     {
       "imagem": "https://images.pexels.com/photos/338711/pexels-photo-338711.jpeg?auto=compress&cs=tinysrgb&w=600",
-      "categoria": "Cerveja - Heineken",
+      "categoria": "Heineken",
       "descricao": "Long neck Heineken gelada (330ml).",
       "preco": "9.00"
     },
     {
       "imagem": "https://images.pexels.com/photos/312418/pexels-photo-312418.jpeg?auto=compress&cs=tinysrgb&w=600",
-      "categoria": "Café - Nespresso Ristretto",
+      "categoria": "Café",
       "descricao": "Dose de café Nespresso Ristretto (50ml).",
       "preco": "4.50"
     }

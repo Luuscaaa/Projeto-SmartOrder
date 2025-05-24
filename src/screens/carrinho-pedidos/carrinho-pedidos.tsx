@@ -76,29 +76,6 @@ export const CarrinhoPedidos = () => {
                     <Text style={styles.textButton}> Finalizar pedido </Text>
                 </TouchableOpacity>
             </View>
-            <View style={styles.bottomMenu}>
-                <TouchableOpacity style={styles.menuItem}>
-                    <MaterialIcons 
-                        name="home" 
-                        size={35} 
-                        color='black'    
-                    />
-                </TouchableOpacity>
-                <TouchableOpacity style={styles.menuItem}>
-                    <MaterialIcons 
-                        name="format-list-bulleted" 
-                        size={35} 
-                        color='black' 
-                    />
-                </TouchableOpacity>
-                <TouchableOpacity style={styles.menuItem}>
-                    <MaterialIcons
-                        name="person" 
-                        size={35} 
-                        color='black'  
-                    />
-                </TouchableOpacity>
-            </View>
         </View>
     )
 }

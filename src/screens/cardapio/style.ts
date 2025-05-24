@@ -9,7 +9,7 @@ export const styles = StyleSheet.create({
         backgroundColor: '#fff'
     },
     boxBackButton: {
-        marginTop: 40,
+        marginTop: 60,
         width: '100%',
         maxWidth: 700,
     },
@@ -98,8 +98,10 @@ export const styles = StyleSheet.create({
         justifyContent: 'center',
     },
     boxItens:{
-        height: 550,
-        paddingVertical: 10
+        height: '60%',
+        paddingVertical: 10,
+        width: '100%',
+        maxHeight: 600
     },
     boxButton:{
         width: '100%',

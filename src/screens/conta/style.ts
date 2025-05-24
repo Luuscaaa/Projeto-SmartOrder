@@ -9,7 +9,7 @@ export const styles = StyleSheet.create({
         backgroundColor: '#fff'
     },
     boxBackButton: {
-        marginTop: 40,
+        marginTop: 60,
         width: '100%',
         maxWidth: 700,
     },
@@ -19,11 +19,12 @@ export const styles = StyleSheet.create({
     },
     resumo:{
         width: '100%',
-        padding: 10
+        padding: 10,
+        height: 350
     },
     card: {
         width: '100%',
-        height: 40,
+        height: 50,
         flexDirection: 'row',
         borderWidth: 1,
         borderRadius: 8,
@@ -48,10 +49,9 @@ export const styles = StyleSheet.create({
         fontSize: 16
     },
     boxItens:{
-        height: 300,
-        paddingVertical: 10,
+        height: 250,
         width: '100%',
-        maxWidth: 400
+        maxWidth: 400,
     },
     lista: {
         
@@ -62,7 +62,7 @@ export const styles = StyleSheet.create({
         flexDirection: 'row',
         alignItems: 'center',
         marginBottom: 30,
-        marginTop: 30
+        marginTop: 15
     },
     boxTotal:{
         width: '40%',
